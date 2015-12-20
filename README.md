@@ -1,5 +1,5 @@
 #Ruby on Rails Template
-###For quick set ups and deploys
+###For quick setups and deploys
 
 
 -Prepared to deploy live on Heroku using Puma

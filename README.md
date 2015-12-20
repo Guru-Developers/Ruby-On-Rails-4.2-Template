@@ -1,41 +1,18 @@
-# Vitrium-Net
+~Ruby on Rails Template~
+For quick set ups and deploys
 
-This app serves as a base API for appending notes to patients with implanted devices. The API can be consumed with a POST request to endpoint: "/api/v1" with JSON paramaters as follows:
 
-```
-{
-    "api-key": "SDFHJkjhGRDfghjTRDFghj$%^&*9!",
-    "patient": "Tom Ford",
-    "surgeon": {
-        "name": "Selene Parekh",
-        "email":"selene.parekh@gmail.com"
-    },
-    "devices": [
-        {
-            "item": "2.5mm Stryker Screw",
-            "status": "confirmed",
-            "timestamp": "2015-08-17T00:18:55+00:00"
-        },
-        {
-            "item": "3.5mm Rotational Cuff",
-            "status": "error",
-            "timestamp": "2015-08-17T00:18:55+00:00"
-        },
-        {
-            "item": "1mm Washer Metal Weight",
-            "status": "confirmed",
-            "timestamp": "2015-08-17T00:18:55+00:00"
-        }
-    ],
-    "annotation": "This patient was seen last Friday. We need to schedule him for another appointment to review rehabilitation techniques.",
-    "hospital": "Duke University Hospital",
-    "password": "345678976#$%^&hos"
-}
-```
+-Prepared to deploy live on Heroku using Puma
+-Install dependencies using the Gemfile by running "bundle install"
+-Follow heroku commands to link with domain and deploy cycle on git
+    -Heroku login
+    -Log onto Heroku (GUI online) and create new domain and sync with git
+    -git push heroku master (after commits)
+-This framework buid closely follows suggestions made by Michael Hartl (https://www.railstutorial.org/book)
+-To run local server use "rails s" (default: http://localhost:3000)
+-Remember to run migrations locally "rake db:migrate" as well as synchronizing Heroku databases via "heroku run:detached rake db:migrate"
 
-##The following functionality will be deployed live:
 
-* saving unique patients with authentication to SQL database
-* saving multiple entries to patient tables
-* recalling entries for particular patients 
-* emailing results once a patient receives a 'completed surgery' status
+
+
+

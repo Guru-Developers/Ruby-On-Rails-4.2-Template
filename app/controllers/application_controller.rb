@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery :except => :curl_post_request
   include SessionsHelper
   def hello
-  	render text: "Testing Vitrium...."
+  	render text: "Testing Guru Template...."
   end
 end

@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       redirect_to @user #also written as redirect_to user_url(@user)
-      flash[:success] = "Welcome Dr. #{@user.name}"
+      flash[:success] = "Welcome #{@user.name}"
     else
       render 'new'
     end

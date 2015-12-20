@@ -1,4 +1,4 @@
-#~Ruby on Rails Template~
+#Ruby on Rails Template
 ###For quick set ups and deploys
 
 

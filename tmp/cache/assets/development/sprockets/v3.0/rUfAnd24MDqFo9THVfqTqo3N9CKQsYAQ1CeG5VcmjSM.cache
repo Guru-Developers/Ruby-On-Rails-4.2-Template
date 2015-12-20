@@ -1,0 +1,26 @@
+I"š(function() {
+  $(function() {
+    return $("#patienttable").on("click", function(event) {
+      var patient_view_id, selected_id;
+      selected_id = $(event.target).parent().children(".patient-id").text();
+      $('#patient-describe-view').addClass("hidden");
+      $('#specific-patient-view').removeClass("hidden");
+      patient_view_id = "#patient-view-" + selected_id;
+      $(patient_view_id).removeClass("hidden");
+      return $(patient_view_id).addClass("selected");
+    });
+  });
+
+  $(function() {
+    return $("#patient-table-back").on("click", function(event) {
+      var $selected_patient;
+      $('#specific-patient-view').addClass("hidden");
+      $('#patient-describe-view').removeClass("hidden");
+      $selected_patient = $('#specific-patient-view').children('.selected');
+      $selected_patient.removeClass("selected");
+      return $selected_patient.addClass("hidden");
+    });
+  });
+
+}).call(this);
+:ET

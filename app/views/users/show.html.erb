@@ -1,0 +1,96 @@
+<% provide(:title, @user.name) %>
+
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        Dr. <%= @user.name %><br>
+        Surgeon ID:<b> <%= session[:user_id] %></b>
+      </h1>
+    </section>
+  </aside>
+
+  <div class="patient-form col-md-6 col-md-offset-3">
+
+      <%= form_for(@patient) do |f| %>
+        <%= render 'shared/error_messages' %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :hospital %>
+        <%= f.text_field :hospital, class: 'form-control' %>
+
+        <%= f.submit "Add new patient", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+</div>
+
+<hr>
+
+
+<!-- VIEWING ALL CURRENT PATIENTS IN TABLE -->
+
+<div id="patient-describe-view" class="row">
+  <h1> Current Patients Registered </h1>
+  <h2> The following patients are registered with our database </h2>
+  <div class="patientlist">
+        <table id="patienttable" class="table table-hover">
+          <tr>
+            <th> Patient Name </th>
+            <th> Patient Number </th>
+            <th> Hospital </th>
+            <th> Last Seen </th>
+          <tr>
+          <% if @current_patients.length > 0 %>
+            <% @current_patients.each do |patient| %>
+                <tr>
+                  <th> <%= patient.name %> </th>
+                  <th class="patient-id"> <%= patient.id %> </th>
+                  <th> <%= patient.hospital %> </th>
+                  <th> <%= patient.updated_at %></th>
+                <tr>
+           <% end %>
+           </table>
+           <% else %>
+            </table>
+            <h3 style="color:red; text-align:center"> No Patients Registered! </h3>
+           <% end %>
+    </div>
+</div>
+
+
+<!-- VIEWING SPECIFIC PATIENT INFORMATION -->
+  <div id="specific-patient-view" class="row hidden">
+    <button id="patient-table-back" type="button" class="btn btn-primary"> Back to Patient Table</button>
+     <% @current_patients.each do |patient| %>
+          <div id="patient-view-<%=patient.id%>" class="hidden">
+              <aside class="col-md-4">
+              <section class="patient_info">
+                <h1>
+                  <%= link_to image_tag("patient-icon.png", size: "150", alt: "Rails logo")%>
+                  <br>
+                  <%= patient.name %>
+                </h1>
+              </section>
+            </aside>
+
+            <!-- RESPECTIVE NOTES COLLECTED FOR EACH PATIENT THROUGH POST REQUESTS -->
+            <p> <b> Recorded Devices: </b> <p>
+              <% if patient.device %>
+                <p> <%= patient.device %><p>
+              <% else %>
+                <p> No devices are currently recorded for this patient. </p>
+              <% end %>
+            <hr>
+
+            <p> <b> Written Annotations: </b> <p>
+              <% if patient.annotation %>
+                <p> <%= patient.annotation %><p>
+              <% else %>
+                <p> No annotations have been recorded for this patient. </p>
+              <% end %>
+            <hr>
+          </div>
+     <% end %>
+  </div>

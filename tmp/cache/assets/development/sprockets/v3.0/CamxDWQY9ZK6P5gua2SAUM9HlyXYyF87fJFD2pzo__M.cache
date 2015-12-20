@@ -1,0 +1,11 @@
+I"º(function() {
+  console.log("hello");
+
+  $(function() {
+    return $("#patienttable").on("click", function() {
+      return console.log("button clicked!");
+    });
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,7 @@
+I"u(function() {
+  $('.patientlist').click(function() {
+    return console.log("holy fuck");
+  });
+
+}).call(this);
+:ET

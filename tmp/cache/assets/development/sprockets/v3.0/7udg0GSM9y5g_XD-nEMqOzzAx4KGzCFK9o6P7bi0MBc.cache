@@ -1,0 +1,9 @@
+I"¦(function() {
+  $(function() {
+    return $("#patienttable").on("click", event(function() {
+      return console.log($(event.target));
+    }));
+  });
+
+}).call(this);
+:ET

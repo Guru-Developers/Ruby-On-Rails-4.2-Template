@@ -1,0 +1,16 @@
+I"¤(function() {
+  $(function() {
+    return $("#patienttable").on("click", function(event) {
+      return console.log($(event.target).parent().children(".patient-id").text());
+    });
+  });
+
+  $(function() {
+    return $("#patient-table-back").on("click", function(event) {
+      $('#specific-patient-view').addClass("hidden");
+      return $('#patient-describe-view').removeClass("hidden");
+    });
+  });
+
+}).call(this);
+:ET

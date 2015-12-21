@@ -1,12 +1,8 @@
 class UsersController < ApplicationController
-  
+
   def show
     if "#{params[:id]}" == "#{session[:user_id]}"
-      @user = User.find(params[:id]) 
-      #find all patients that are associated with this surgeon
-      @patient = Patient.new
-      @current_patients = []
-      @current_patients += Patient.where(surgeon: params[:id]).to_a if Patient.find_by(surgeon: params[:id])
+      @user = User.find(params[:id])
     else
       raise ActionController::RoutingError.new('Not Found')
     end
@@ -29,9 +25,9 @@ class UsersController < ApplicationController
 
   private
 
-  #the following methods protect agaisnt cross site scripting attacks
-    def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
-    end
+  # The following methods protect agaisnt cross site scripting attacks
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
 end

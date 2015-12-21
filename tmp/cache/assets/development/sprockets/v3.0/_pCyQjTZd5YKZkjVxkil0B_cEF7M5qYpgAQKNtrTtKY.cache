@@ -1,7 +1,0 @@
-I"^(function() {
-  $(function() {
-    return alert("testing coffee");
-  });
-
-}).call(this);
-:ET

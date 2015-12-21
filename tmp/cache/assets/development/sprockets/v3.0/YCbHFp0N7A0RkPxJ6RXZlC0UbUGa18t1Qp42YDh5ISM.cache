@@ -1,9 +1,0 @@
-I"ž(function() {
-  $(function() {
-    return $("#patienttable").on("click", function() {
-      return $("#patienttable").html("");
-    });
-  });
-
-}).call(this);
-:ET

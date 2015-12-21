@@ -16,5 +16,11 @@
 !/log/.keep
 /tmp
 
+# Avoid confidential information
+/config/secrets.yml
+
+# No need to save assets; these are generated upon deployment
+/public/assets/
+
 # OS-X ignores
 .DS_Store

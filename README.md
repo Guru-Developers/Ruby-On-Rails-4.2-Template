@@ -1,7 +1,5 @@
 # Ruby on Rails Template
 
-Kammy edit
-
 ## Overview
 
 - Prepared to deploy live on Heroku using Puma
